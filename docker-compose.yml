@@ -4,14 +4,25 @@ services:
   nginx:
     image: nginx:1.15-alpine
     depends_on:
-    - flask_app
+      - memberxxl_app
     ports:
-    - "80:80"
+      - "80:80"
+      - "443:443"
     volumes:
       - ./data/nginx:/etc/nginx/conf.d
+      - ./data/certbot/conf:/etc/letsencrypt
+      - ./data/certbot/www:/var/www/certbot
 
-  flask_app:
-    image: flask_app
+  certbot:
+    image: certbot/certbot
+    volumes:
+      - ./data/certbot/conf:/etc/letsencrypt
+      - ./data/certbot/www:/var/www/certbot
+
+  memberxxl_app:
+    image: memberxxl_app
     build:
       context: .
-      dockerfile: ./Dockerfile
+      dockerfile: ./dockers/Dockerfile-memberxxl-flask
+    environment:
+      API_ADDRESS: ${API_ADDRESS}
