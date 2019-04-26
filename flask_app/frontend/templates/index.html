@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+{% block title %}{{ content.title }}{% endblock %}
+
+{% block pageContent %}
+    {% with content=content %}
+        {% include 'navigation.html' %}
+    {% endwith %}
+    {% include 'body.html' %}
+{% endblock %}

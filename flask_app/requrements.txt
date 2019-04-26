@@ -1,0 +1,16 @@
+blueprint==3.4.2
+certifi==2019.3.9
+chardet==3.0.4
+Click==7.0
+Flask==1.0.2
+Flask-Login==0.4.1
+flask-swagger-ui==3.20.9
+htmlmin==0.1.12
+idna==2.8
+itsdangerous==1.1.0
+Jinja2==2.10
+MarkupSafe==1.1.1
+requests==2.21.0
+urllib3==1.24.1
+Werkzeug==0.15.0
+WTForms==2.2.1
