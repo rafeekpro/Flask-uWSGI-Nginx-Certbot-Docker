@@ -54,7 +54,8 @@ jobs:
     
     - name: Run Pytest with coverage
       run: |
-        pytest --cov=flask_app --cov-report=xml --cov-report=term-missing
+        cd flask_app
+        python -m pytest ../tests --cov=. --cov-report=xml --cov-report=term-missing
     
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v4
