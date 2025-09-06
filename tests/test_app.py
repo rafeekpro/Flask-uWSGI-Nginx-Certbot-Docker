@@ -18,7 +18,7 @@ class TestApp:
         """Test the home route with successful content retrieval."""
         mock_content = {"title": "Test Title", "text": "Test Text"}
 
-        with patch("flask_app.frontend.api.Content.Content.get_content") as mock_get:
+        with patch("frontend.api.Content.Content.get_content") as mock_get:
             mock_get.return_value = mock_content
             response = client.get("/")
 
@@ -27,7 +27,7 @@ class TestApp:
 
     def test_home_route_connection_error(self, client):
         """Test the home route when API connection fails."""
-        with patch("flask_app.frontend.api.Content.Content.get_content") as mock_get:
+        with patch("frontend.api.Content.Content.get_content") as mock_get:
             mock_get.side_effect = requests.exceptions.ConnectionError()
             response = client.get("/")
 

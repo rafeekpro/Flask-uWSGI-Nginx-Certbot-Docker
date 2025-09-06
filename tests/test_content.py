@@ -3,13 +3,13 @@ from unittest.mock import MagicMock, patch
 import pytest
 import requests
 
-from flask_app.frontend.api.Content import Content
+from frontend.api.Content import Content
 
 
 class TestContent:
     """Test suite for Content API class."""
 
-    @patch("flask_app.frontend.api.Content.requests.post")
+    @patch("frontend.api.Content.requests.post")
     def test_get_content_success(self, mock_post):
         """Test successful content retrieval."""
         mock_response = MagicMock()
@@ -23,7 +23,7 @@ class TestContent:
         assert result["title"] == "API Title"
         assert result["text"] == "API Text"
 
-    @patch("flask_app.frontend.api.Content.requests.post")
+    @patch("frontend.api.Content.requests.post")
     def test_get_content_api_error(self, mock_post):
         """Test content retrieval with API error."""
         mock_post.side_effect = requests.exceptions.RequestException("API Error")
@@ -32,7 +32,7 @@ class TestContent:
         with pytest.raises(requests.exceptions.RequestException):
             Content.get_content(session)
 
-    @patch("flask_app.frontend.api.Content.requests.post")
+    @patch("frontend.api.Content.requests.post")
     def test_get_content_timeout(self, mock_post):
         """Test content retrieval with timeout."""
         mock_post.side_effect = requests.exceptions.Timeout()
