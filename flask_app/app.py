@@ -19,7 +19,13 @@ def create_app(config_name: str = "production") -> Flask:
     app = Flask(__name__)
     
     # Configuration
-    app.config["SECRET_KEY"] = os.getenv("SECRET_KEY", os.urandom(32).hex())
+    secret_key = os.getenv("SECRET_KEY")
+    if not secret_key:
+        if config_name == "development":
+            secret_key = "dev-secret-key"
+        else:
+            raise RuntimeError("SECRET_KEY environment variable must be set in production.")
+    app.config["SECRET_KEY"] = secret_key
     app.config["API_ADDRESS"] = os.getenv("API_ADDRESS", "http://localhost:8000")
     app.config["ENV"] = config_name
     app.config["DEBUG"] = config_name == "development"
