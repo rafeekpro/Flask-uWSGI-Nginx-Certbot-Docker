@@ -23,7 +23,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Architecture Overview
 
 This is a Flask web application deployed with Docker, using:
-- **Flask app** (memberxxl_app service): Python 3.7 application running on uWSGI
+- **Flask app** (memberxxl_app service): Python 3.12 application running on uWSGI
 - **Nginx**: Reverse proxy handling HTTP/HTTPS traffic
 - **Certbot**: Let's Encrypt SSL certificate management
 
