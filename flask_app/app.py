@@ -4,7 +4,7 @@ from logging.handlers import RotatingFileHandler
 from pathlib import Path
 
 from dotenv import load_dotenv
-from flask import Blueprint, Flask, jsonify
+from flask import Flask, jsonify
 from flask_cors import CORS
 from flask_talisman import Talisman
 from frontend import frontend_blueprint
