@@ -24,9 +24,7 @@ class Content:
             raise ValueError("API_ADDRESS environment variable is not set")
 
         try:
-            response = requests.post(
-                url=api_address, json=session_info, timeout=10
-            )
+            response = requests.post(url=api_address, json=session_info, timeout=10)
             response.raise_for_status()
             content = response.json()
             # Validate response structure
