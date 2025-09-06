@@ -1,6 +1,6 @@
-import requests
 from typing import cast
 
+import requests
 from flask import render_template, session
 
 from . import frontend_blueprint
