@@ -4,7 +4,7 @@ from logging.handlers import RotatingFileHandler
 from pathlib import Path
 
 from dotenv import load_dotenv
-from flask import Flask, jsonify
+from flask import Flask, Response, jsonify
 from flask_cors import CORS
 from flask_talisman import Talisman
 from frontend import frontend_blueprint
@@ -62,7 +62,7 @@ def create_app(config_name: str = "production") -> Flask:
 
     # Health check endpoint
     @app.route("/health")
-    def health():
+    def health() -> tuple[Response, int]:
         """Health check endpoint for monitoring."""
         return (
             jsonify(
@@ -77,17 +77,17 @@ def create_app(config_name: str = "production") -> Flask:
 
     # Error handlers
     @app.errorhandler(404)
-    def not_found(error):
+    def not_found(error: Exception) -> tuple[Response, int]:
         app.logger.warning(f"404 error: {error}")
         return jsonify({"error": "Not found"}), 404
 
     @app.errorhandler(500)
-    def internal_error(error):
+    def internal_error(error: Exception) -> tuple[Response, int]:
         app.logger.error(f"500 error: {error}")
         return jsonify({"error": "Internal server error"}), 500
 
     @app.errorhandler(Exception)
-    def handle_exception(error):
+    def handle_exception(error: Exception) -> tuple[Response, int]:
         app.logger.error(f"Unhandled exception: {error}", exc_info=True)
         return jsonify({"error": "An error occurred"}), 500
 

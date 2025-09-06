@@ -40,4 +40,4 @@ class Content:
             print(f"Error processing API response: {e}")
             content = {"title": "Default Title", "text": "Default Text"}
 
-        return content
+        return content  # type: ignore[no-any-return]
