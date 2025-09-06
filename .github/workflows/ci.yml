@@ -55,7 +55,7 @@ jobs:
     - name: Run Pytest with coverage
       run: |
         cd flask_app
-        FLASK_ENV=development SECRET_KEY=test-secret python -m pytest ../tests --cov=. --cov-report=xml --cov-report=term-missing
+        FLASK_ENV=development SECRET_KEY=test-secret API_ADDRESS=http://test-api python -m pytest ../tests --cov=. --cov-report=xml --cov-report=term-missing
     
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v4
