@@ -2,7 +2,6 @@ from unittest.mock import MagicMock, patch
 
 import pytest
 import requests
-
 from frontend.api.Content import Content
 
 
