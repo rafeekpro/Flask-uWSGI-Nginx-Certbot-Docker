@@ -1,5 +1,5 @@
 from flask import Blueprint
 
-frontend_blueprint = Blueprint('frontend', __name__, template_folder='templates')
+frontend_blueprint = Blueprint("frontend", __name__, template_folder="templates")
 
-from . import routes
+from . import routes  # noqa: E402, F401

@@ -1,17 +1,32 @@
-blueprint==3.4.2
-certifi==2019.3.9
-chardet==3.0.4
-Click==7.0
-Flask==1.0.2
-Flask-Login==0.4.1
-flask-swagger-ui==3.20.9
+# Core Flask dependencies
+Flask==3.1.1
+Werkzeug==3.1.3
+Jinja2==3.1.6
+MarkupSafe==3.0.2
+click==8.1.7
+itsdangerous==2.2.0
+
+# Web server
+uWSGI==2.0.26
+
+# HTTP client
+requests==2.32.4
+certifi==2024.12.14
+chardet==5.2.0
+idna==3.10
+urllib3==2.5.0
+
+# Forms and UI
+WTForms==3.1.2
+flask-swagger-ui==4.11.1
+
+# Environment and configuration
+python-dotenv==1.0.1
+
+# Security
+flask-cors==6.0.0
+flask-talisman==1.1.0
+
+# Utilities
 htmlmin==0.1.12
-idna==2.8
-itsdangerous==1.1.0
-Jinja2>=2.10.1
-MarkupSafe==1.1.1
-requests==2.21.0
-urllib3>=1.24.2
-Werkzeug==0.15.0
-WTForms==2.2.1
-uWSGI==2.0.17.1
+
